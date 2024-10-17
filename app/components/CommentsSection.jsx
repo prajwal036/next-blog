@@ -34,22 +34,25 @@ const CommentsSection = () => {
       <div className="space-y-4 mt-6">
         {/* It shows the recent comments */}
         <h3 className="text-xl font-semibold">Recent Comments</h3>
-        <ul>
-          {comments.map((comment, index) => (
-            <li
-              key={index}
-              className="p-2 mb-2 flex items-center gap-4 border-b"
-            >
-              <div className="relative w-14 h-14 rounded-full overflow-hidden object-cover bg-cover">
-                <Image src={"/img.jpg"} fill quality={80} />
-              </div>
-              <div className="space-y-2 ">
-                <p className=" font-semibold">User</p>
-                {comment}
-              </div>
-            </li>
-          ))}
-        </ul>
+        {comments.length !== 0 ? (
+          <ul className="pt-4 border space-y-2">
+            {comments.map((comment, index) => (
+              <li key={index} className="p-2 flex items-center gap-4 border-b">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden object-cover bg-cover">
+                  <Image src={"/img.jpg"} fill quality={80} />
+                </div>
+                <div className="space-y-2 ">
+                  <p className=" font-semibold">User</p>
+                  {comment}
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="py-10  border text-center">
+            <h4 className="text-xl ">There are no comments</h4>
+          </div>
+        )}
       </div>
     </div>
   );
