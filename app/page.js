@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 //importing bloglist dynamically for better code splitting
 const BlogList = dynamic(() => import("@/app/components/BlogList"), {
   loading: () => <p className="mt-20 text-4xl">Loading...</p>,
+  ssr: false,
 });
 
 export default function Home() {
