@@ -36,12 +36,15 @@ const CommentsSection = () => {
         <h3 className="text-xl font-semibold">Recent Comments</h3>
         <ul>
           {comments.map((comment, index) => (
-            <li key={index} className="p-2 mb-2 flex items-center gap-4">
+            <li
+              key={index}
+              className="p-2 mb-2 flex items-center gap-4 border-b"
+            >
               <div className="relative w-14 h-14 rounded-full overflow-hidden object-cover bg-cover">
                 <Image src={"/img.jpg"} fill quality={80} />
               </div>
-              <div className="space-y-2">
-                <p className="text-lg">User</p>
+              <div className="space-y-2 ">
+                <p className=" font-semibold">User</p>
                 {comment}
               </div>
             </li>

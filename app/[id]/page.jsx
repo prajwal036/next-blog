@@ -1,15 +1,15 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { usePosts } from "../context/BlogContext";
-import React, { useEffect, useState } from "react";
+import { useBlogs } from "../context/BlogContext";
+import React from "react";
 import CommentsSection from "../components/CommentsSection";
 
 const DetailedPage = () => {
   const { id } = useParams(); //it gets the params id from the dynamic route
-  const { posts } = usePosts(); // using posts state from usePosts context
+  const { blogs } = useBlogs(); // using blogs state from useBlogs context
 
-  const post = posts.find((p) => p.id === Number(id)); // it filters the blog from the lists of blogs
+  const post = blogs.find((p) => p.id === Number(id)); // it filters the blog from the lists of blogs
 
   if (!post)
     //if it couldn't find the post then return the following

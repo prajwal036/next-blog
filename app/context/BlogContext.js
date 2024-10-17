@@ -1,22 +1,22 @@
 "use client";
 import { createContext, useState, useContext } from "react";
 
-const PostsContext = createContext();
+const BlogsContext = createContext();
 
 export const BlogProvider = ({ children }) => {
-  const [posts, setPosts] = useState([]);
+  const [blogs, setBlogs] = useState([]); // state for adding all blogs data
 
   return (
-    <PostsContext.Provider value={{ posts, setPosts }}>
+    <BlogsContext.Provider value={{ blogs, setBlogs }}>
       {children}
-    </PostsContext.Provider>
+    </BlogsContext.Provider>
   );
 };
 
-export const usePosts = () => {
-  const context = useContext(PostsContext);
+export const useBlogs = () => {
+  const context = useContext(BlogsContext);
   if (!context) {
-    throw new Error("usePosts must be used within a PostsProvider");
+    throw new Error("useBlogs must be used within a BlogProvider");
   }
   return context;
 };
